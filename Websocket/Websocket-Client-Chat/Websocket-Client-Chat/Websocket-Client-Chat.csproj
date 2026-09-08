@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>$(LabWindowsTargetFramework)</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>Websocket_Client_Chat</RootNamespace>
+    <AssemblyName>Websocket-Client-Chat</AssemblyName>
+    <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      The only NuGet package this lab needs. Unlike the server, the client is
+      not an ASP.NET Core app, so the SignalR client is a real package.
+      No Version attribute here on purpose - the version is declared centrally
+      in Directory.Packages.props at the repository root.
+    -->
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,28 @@
+<Project>
+
+  <!--
+    ============================================================
+    Central build configuration for all three projects.
+
+    The target framework is defined ONCE here instead of in each
+    .csproj. To move the whole lab to a newer .NET, change the two
+    properties below and nothing else.
+
+    net10.0 is an LTS release, supported through November 2028.
+    It requires Visual Studio 2026 (18.0+); Visual Studio 2022
+    cannot target it.
+    ============================================================
+  -->
+
+  <PropertyGroup>
+    <LabTargetFramework>net10.0</LabTargetFramework>
+    <LabWindowsTargetFramework>net10.0-windows</LabWindowsTargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+</Project>

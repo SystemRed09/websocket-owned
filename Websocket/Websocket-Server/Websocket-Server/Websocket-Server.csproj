@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>$(LabTargetFramework)</TargetFramework>
+    <RootNamespace>Websocket_Server</RootNamespace>
+    <AssemblyName>Websocket-Server</AssemblyName>
+  </PropertyGroup>
+
+  <!--
+    No <PackageReference> is needed for SignalR on the server.
+    Microsoft.AspNetCore.SignalR ships inside the ASP.NET Core shared
+    framework, which Microsoft.NET.Sdk.Web pulls in automatically.
+    (The old lab referenced websocket-sharp.dll by HintPath from a
+    committed Lib\ folder. That folder is gone.)
+  -->
+
+</Project>

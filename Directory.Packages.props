@@ -1,0 +1,30 @@
+<Project>
+
+  <!--
+    ============================================================
+    Central package version management.
+
+    Package versions are declared ONCE here. The .csproj files
+    reference packages by name only, with no Version attribute.
+    This is the same idea as Directory.Build.props holding the
+    target framework: one place to change, three projects follow.
+
+    Versions are pinned exactly (not floating, e.g. "10.0.*") so
+    that every student, every lab machine, and the grader restore
+    byte-identical dependencies. "It works on my machine" should
+    never come down to a different patch release.
+
+    Bump this deliberately once per semester rather than letting
+    it drift mid-term.
+    ============================================================
+  -->
+
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.AspNetCore.SignalR.Client" Version="10.0.0" />
+  </ItemGroup>
+
+</Project>

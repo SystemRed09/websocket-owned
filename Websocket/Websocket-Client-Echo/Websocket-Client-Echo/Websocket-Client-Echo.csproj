@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>$(LabTargetFramework)</TargetFramework>
+    <RootNamespace>Websocket_Client_Echo</RootNamespace>
+    <AssemblyName>Websocket-Client-Echo</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Version comes from Directory.Packages.props at the repository root. -->
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" />
+  </ItemGroup>
+
+</Project>
