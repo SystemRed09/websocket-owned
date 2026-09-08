@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using Microsoft.AspNetCore.SignalR;
 
 namespace Websocket_Server
@@ -42,7 +43,9 @@ namespace Websocket_Server
     public class ChatHub : Hub
     {
         // TODO (Task I):  Declare the shared, thread-safe message history here.
+        private ConcurrentQueue<string> history = new();
         // TODO (Task II): Declare the shared sequential counter here.
+        private int counter = 0;
 
 
         /// <summary>
@@ -55,8 +58,15 @@ namespace Websocket_Server
             //                connected - and to nobody else. Do NOT broadcast.
 
             await base.OnConnectedAsync();
+            {
+                foreach (string msg in history)
+                {
+                    await Clients.Caller.SendAsync("ReceiveMessage", msg);
+                }
+            }
         }
 
+        private readonly object Gate = new();
         /// <summary>
         /// Invoked by a client with:  connection.SendAsync("SendMessage", text)
         /// (This replaces the old OnMessage(MessageEventArgs e).)
@@ -65,6 +75,12 @@ namespace Websocket_Server
         {
             // TODO (Task II): Assign the next sequential number to this message.
             // TODO (Task I):  Store the numbered message in the shared history.
+            lock (Gate)
+            {
+                history.Enqueue(counter + ": " + message);
+                counter++;
+            }
+            
 
             // Broadcast the message to all clients.
             // (was: Sessions.Broadcast(msg);)
