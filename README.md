@@ -69,3 +69,7 @@ See the comment block at the top of `Chat.cs`. In short:
 ## Submission
 
 Push your completed code to your GitHub repository, and update this `README.md` with a section explaining your approach and any challenges you hit.
+
+## Reflection
+
+This lab was very simple. I just added a ConcurrentQueue<string> to store the messages and a counter to number them as they come in. I then added a Client message send on every message in the history (ConQue) to the new client. Finally, I modified the sending of messages to the server to add the number with the count and append it to the history. I surrounded that block with a gate to ensure 2 messages would not get the same number.
